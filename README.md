@@ -163,6 +163,13 @@ a pass rule in trident.toml).
   currency/country/language, sorting, the main menu, featured products, …); any
   other setting a theme or module reads needs a manual purge.
 
+## Versioning
+
+Versions follow Trident: this module 1.8.x works with Trident 1.8. MAJOR.MINOR moves
+with the engine (every Trident X.Y.0 release is also a release of this package,
+changed or not); the PATCH number is this package's own. The 1.8 line is published as `1.8.0-beta.1` (the module file itself says 1.8.0: PrestaShop stores module versions in a `varchar(8)` column). The
+admin screens warn when a connected Trident runs another release line.
+
 ## This repository is a mirror
 
 `qoliber/trident-cache-prestashop` is developed in the Trident repository together with the
