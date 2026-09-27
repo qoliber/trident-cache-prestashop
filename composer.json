@@ -1,0 +1,35 @@
+{
+    "name": "qoliber/trident-cache-prestashop",
+    "description": "PrestaShop 9 module for the Trident HTTP cache: full-page caching of anonymous catalogue pages, cache tags, durable purges (outbox, retried until acknowledged), personal content from the browser, and the shared admin screens.",
+    "type": "prestashop-module",
+    "license": "MIT",
+    "authors": [{ "name": "qoliber", "email": "jwinkler@qoliber.com" }],
+    "repositories": [
+        { "type": "path", "url": "../../../php-library", "options": { "symlink": false, "versions": { "qoliber/trident-php": "1.8.99" } } }
+    ],
+    "require": {
+        "php": "~8.1.0||~8.2.0||~8.3.0||~8.4.0||~8.5.0",
+        "ext-sodium": "*",
+        "qoliber/trident-php": "^1.8",
+        "guzzlehttp/guzzle": "^7.5",
+        "guzzlehttp/psr7": "^2.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    },
+    "autoload": {
+        "psr-4": { "Qoliber\\TridentPrestaShop\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Qoliber\\TridentPrestaShop\\Tests\\": "tests/" }
+    },
+    "config": {
+        "prepend-autoloader": false,
+        "sort-packages": true
+    },
+    "scripts": {
+        "post-install-cmd": ["@copy-assets"],
+        "post-update-cmd": ["@copy-assets"],
+        "copy-assets": "cp vendor/qoliber/trident-php/assets/js/trident-sections.js views/js/trident-sections.js"
+    }
+}

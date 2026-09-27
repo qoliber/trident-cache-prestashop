@@ -1,0 +1,14 @@
+# Console commands (bin/console trident:*), for cron and operators.
+services:
+  _defaults:
+    public: true
+  Qoliber\TridentPrestaShop\Command\PurgeDrainCommand:
+    tags: [console.command]
+  Qoliber\TridentPrestaShop\Command\PurgeStatusCommand:
+    tags: [console.command]
+  Qoliber\TridentPrestaShop\Command\PurgeForgetCommand:
+    tags: [console.command]
+  Qoliber\TridentPrestaShop\Command\ConfigCommand:
+    tags: [console.command]
+  Qoliber\TridentPrestaShop\Admin\KernelSubscriber:
+    tags: [kernel.event_subscriber]
