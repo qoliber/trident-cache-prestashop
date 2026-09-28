@@ -25,6 +25,31 @@
       <button class="btn btn-primary">Purge</button>
     </form>
   {/if}
+  {if isset($trident.screen) && $trident.screen == 'warmer'}
+    <form method="post" action="{$trident_link|escape:'html':'UTF-8'}">
+      <input type="hidden" name="trident_token" value="{$trident.token|escape:'html':'UTF-8'}">
+      <input type="hidden" name="trident_action" value="warmer_run">
+      <label>Sitemap URL(s) on this shop, one per line (.xml or .xml.gz). Empty: the warmer's configured sources
+        <textarea name="sitemaps" class="form-control" rows="3" placeholder="/1_index_sitemap.xml"></textarea></label>
+      <button class="btn btn-primary">Run the warmer now</button>
+    </form>
+    <form method="post" action="{$trident_link|escape:'html':'UTF-8'}" class="form-inline">
+      <input type="hidden" name="trident_token" value="{$trident.token|escape:'html':'UTF-8'}">
+      <input type="hidden" name="trident_action" value="warmer_queue_shop">
+      <button class="btn btn-default">Warm this shop's pages</button>
+    </form>
+    <form method="post" action="{$trident_link|escape:'html':'UTF-8'}">
+      <input type="hidden" name="trident_token" value="{$trident.token|escape:'html':'UTF-8'}">
+      <input type="hidden" name="trident_action" value="warmer_queue">
+      <label>URLs or paths on this shop, one per line <textarea name="urls" class="form-control" rows="3"></textarea></label>
+      <button class="btn btn-default">Warm these URLs</button>
+    </form>
+    <form method="post" action="{$trident_link|escape:'html':'UTF-8'}" class="form-inline">
+      <input type="hidden" name="trident_token" value="{$trident.token|escape:'html':'UTF-8'}">
+      <input type="hidden" name="trident_action" value="warmer_cancel">
+      <button class="btn btn-default">Cancel the running warm-up</button>
+    </form>
+  {/if}
   {if isset($trident.screen) && $trident.screen == 'settings'}
     <form method="post" action="{$trident_link|escape:'html':'UTF-8'}">
       <input type="hidden" name="trident_token" value="{$trident.token|escape:'html':'UTF-8'}">
