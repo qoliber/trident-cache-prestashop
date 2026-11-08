@@ -101,7 +101,7 @@ class TridentCache extends Module
         $this->version = '1.8.0';
         $this->author = 'qoliber';
         $this->need_instance = 0;
-        $this->ps_versions_compliancy = ['min' => '9.0.0', 'max' => _PS_VERSION_];
+        $this->ps_versions_compliancy = ['min' => '9.0.3', 'max' => _PS_VERSION_];
         $this->bootstrap = true;
         parent::__construct();
         $this->displayName = 'Trident Cache';

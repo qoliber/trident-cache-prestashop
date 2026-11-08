@@ -6,11 +6,25 @@ durably, and the visitor's own bits (cart, greeting) come from the browser — a
 cached page costs the shop nothing.
 
 - Module: [`tridentcache/`](tridentcache/) — Composer package
-  `qoliber/trident-cache-prestashop`, on the shared library `qoliber/trident-php` ^1.7.
+  `qoliber/trident-cache-prestashop`, on the shared library `qoliber/trident-php` ~1.8.2
+  (the corrected SDK candidate must be published before public installation).
 - Sample Trident config: [`trident.toml`](trident.toml).
 - Live e2e stack: [`tests/prestashop-e2e`](../../../tests/prestashop-e2e).
 
-Tested: PrestaShop **9.1.5** (classic theme 5.0), PHP 8.3, MariaDB 10.11, Trident 1.8.0.
+Tested: PrestaShop **9.1.5**, PHP 8.3, MariaDB 10.11, Trident 1.8.0.
+
+The technical minimum is PrestaShop **9.0.3**. Its
+[post-country-selection hook](https://github.com/PrestaShop/PrestaShop/releases/tag/9.0.3)
+lets the module keep a first cookieless visitor in the shop's default country
+before currency selection. PrestaShop 9.0.0–9.0.2 do not emit this hook. This
+minimum is distinct from the tested profile above.
+
+PrestaShop's native compatibility check refuses a fresh installation below
+9.0.3. Upgrading or enabling an already-installed module does not repeat that
+fresh-install check: on an older shop, upgrade PrestaShop to 9.0.3 or later before
+deploying or updating this module, then use the normal module update procedure.
+An upgrade or enable success, or a registered hook name, does not validate this
+requirement.
 
 ## Install
 
